@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddk1sei3o0wrx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dbsu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_gwwl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u3n2"]
+size = Vector2(100, 10)
+
+[sub_resource type="SphereMesh" id="SphereMesh_j3ex3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1byv4"]
+radius = 25.0
+
+[node name="root" type="Node2D"]
+
+[node name="platform" type="RigidBody2D" parent="."]
+position = Vector2(578, 406)
+physics_material_override = SubResource("PhysicsMaterial_4dbsu")
+freeze = true
+
+[node name="mesh" type="MeshInstance2D" parent="platform"]
+scale = Vector2(100, 10)
+mesh = SubResource("QuadMesh_gwwl4")
+
+[node name="collision_shape" type="CollisionShape2D" parent="platform"]
+shape = SubResource("RectangleShape2D_1u3n2")
+
+[node name="ball" type="RigidBody2D" parent="."]
+position = Vector2(577, 232)
+
+[node name="mesh" type="MeshInstance2D" parent="ball"]
+scale = Vector2(50, 50)
+mesh = SubResource("SphereMesh_j3ex3")
+
+[node name="collision_shape" type="CollisionShape2D" parent="ball"]
+shape = SubResource("CircleShape2D_1byv4")
